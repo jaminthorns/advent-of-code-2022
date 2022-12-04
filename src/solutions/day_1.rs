@@ -4,21 +4,21 @@ pub const SOLUTION: Solution = Solution {
   day: 1,
 
   part_1: |input| {
-    let total_calories = elf_calories(input);
-    Some(*total_calories.iter().max().unwrap())
+    let calories = parse_calories(input);
+    Some(*calories.iter().max().unwrap())
   },
 
   part_2: |input| {
-    let mut total_calories = elf_calories(input);
+    let mut calories = parse_calories(input);
 
-    total_calories.sort();
-    total_calories.reverse();
+    calories.sort();
+    calories.reverse();
 
-    Some(total_calories.iter().take(3).sum())
+    Some(calories.iter().take(3).sum())
   },
 };
 
-fn elf_calories(input: &Input) -> Vec<i64> {
+fn parse_calories(input: &Input) -> Vec<i64> {
   input
     .split_terminator("\n\n")
     .map(|food| {
