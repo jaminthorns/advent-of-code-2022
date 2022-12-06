@@ -21,8 +21,8 @@ pub const SOLUTION: Solution = Solution {
 fn parse_calories(input: &Input) -> Vec<i64> {
   input
     .split_terminator("\n\n")
-    .map(|food| {
-      food
+    .map(|lines| {
+      lines
         .split_terminator("\n")
         .map(|calories| calories.parse::<i64>().unwrap())
         .sum()

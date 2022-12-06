@@ -60,8 +60,8 @@ type Score = i64;
 fn letters(input: &Input) -> Vec<(&str, &str)> {
   input
     .split_terminator("\n")
-    .map(|round| {
-      let letters: Vec<&str> = round.split_ascii_whitespace().collect();
+    .map(|line| {
+      let letters: Vec<&str> = line.split_ascii_whitespace().collect();
       (*letters.get(0).unwrap(), *letters.get(1).unwrap())
     })
     .collect()
